@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import axios from 'axios';
 import p5 from 'p5';
+import {Button }from 'reactstrap';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketch';
 
@@ -15,7 +16,11 @@ var config = {
 
 const Home = () => (
   <header className="App-header">
+
     <P5Wrapper sketch={sketch} />
+
+    <Button color="info" size="lg" href="/mainPage">Main Page</Button>{' '}
+
   </header>
 )
 
