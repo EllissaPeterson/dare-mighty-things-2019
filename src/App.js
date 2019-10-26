@@ -21,7 +21,7 @@ const Home = () => (
 
 export default class App extends React.Component {
   state = {
-    persons: [],
+    song: [],
     name: ""
   }
   componentDidMount() {
