@@ -1,12 +1,6 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import AudioAnalyser from './AudioAnalyser';
-
-var config = {
-  apiKey: "AIzaSyDGcka-5SOrH54E4zUStNDkF345CPhOOdY",
-  authDomain: "dare-mighty-things-2019.firebaseapp.com",
-  databaseURL: "https://dare-mighty-things-2019.firebaseio.com",
-  storageBucket: "dare-mighty-things-2019.appspot.com",
-};
 
 export default class MainPage extends React.Component {
     constructor(props) {
@@ -37,9 +31,9 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
-            <button onClick={this.toggleMicrophone}>
+            <Button color="info" size="lg" onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
-            </button>
+            </Button>
             {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
         </header>
       )
