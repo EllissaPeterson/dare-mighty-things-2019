@@ -19,7 +19,7 @@ export default function sketch (p) {
     p.normalMaterial();
     p.noStroke();
     p.push();
-    p.rotateY(rotation);
+    //p.rotateY(rotation);
     p.box(100);
     p.pop();
   };
