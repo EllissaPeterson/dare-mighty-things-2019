@@ -25,13 +25,10 @@ export default class App extends React.Component {
     name: ""
   }
   componentDidMount() {
-    //coms-309-bs-4.misc.iastate.edu:8080/test/hello
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    //https://audd.tech/example1.mp3
+    axios.get(`https://api.audd.io/?url=https://audd.tech/example1.mp3&return=timecode,lyrics`)
       .then(res => {
-        console.log(res.data[0]);
-        this.setState({persons : res.data});
-        console.log(this.state.persons[0].name);
-        this.setState({name : res.data[0].name});
+        console.log(res.data.result);
       })
   }
   render() {
