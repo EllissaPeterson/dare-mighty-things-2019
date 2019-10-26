@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-<<<<<<< HEAD
-import {Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-=======
 import p5 from 'p5';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketch';
->>>>>>> master
 
 var config = {
   apiKey: "AIzaSyDGcka-5SOrH54E4zUStNDkF345CPhOOdY",
@@ -19,12 +15,10 @@ var config = {
 
 const Home = () => (
   <header className="App-header">
-    <img src="logo.png" className="App-logo" alt="logo" />
     <P5Wrapper sketch={sketch} />
   </header>
 )
 
-<<<<<<< HEAD
 export default class App extends React.Component {
   state = {
     persons: [],
@@ -50,16 +44,3 @@ export default class App extends React.Component {
     );
   }
 }
-=======
-function App() {
-  return (
-    <Router>
-      <div className="App">
-          <Route exact path="/" component={Home} />
-      </div>
-    </Router>
-  );
-}
-
-export default App;
->>>>>>> master
