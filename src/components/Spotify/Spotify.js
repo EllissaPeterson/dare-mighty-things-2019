@@ -4,8 +4,8 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import hash from "./hash";
 import Player from "./SpotifyPlayer";
 import "./Player.css";
-
-import "./App.css";
+import globalVars from "../../globalAudio";
+import "./Spotify.css";
 class SpotifyPlay extends Component {
   constructor() {
     super();
@@ -57,9 +57,15 @@ class SpotifyPlay extends Component {
   }
 
   render() {
-
+    if(this.state.token != null) {
+      console.log(this.state.token.item.name, this.token.item.artists[0]);
+      globalVars.songname = this.state.token.item.name;
+      globalVars.artist = this.state.token.item.artists[0];
+    }
+     
     return (
-      <div className="SpotifyPlay">
+    
+      <div className="btn">
         
           {!this.state.token && (
             <a
@@ -79,7 +85,9 @@ class SpotifyPlay extends Component {
             />
           )}
         
-      </div>
+      
+          </div>
+      
     );
   }
 }
