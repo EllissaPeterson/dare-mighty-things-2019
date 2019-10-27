@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import pineapplesketch from '../pineapplesketch';
-import globalAudio from '../globalAudio'
-
+import globalAudio from '../globalAudio';
 class PineappleVisualiser extends Component {
     constructor(props) {
         super(props);

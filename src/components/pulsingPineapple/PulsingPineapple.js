@@ -34,7 +34,8 @@ export default class PulsingPineapple extends React.Component {
       return (
         <header className="App-header">
             <br></br>
-            <Button color={this.state.color} size="lg" onClick={this.toggleMicrophone} block>
+            <br></br>
+            <Button color={this.state.color} size="lg" style={{width: '75%'}} onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </Button>
             {this.state.audio ? <PineappleAnalyser audio={this.state.audio} /> : ''}
