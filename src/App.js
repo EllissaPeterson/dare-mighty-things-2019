@@ -6,13 +6,15 @@ import MainPage from './components/MainPage';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketch';
 import CHeader from './components/CustomHeader';
-
+import Player from './components/Spotify/Spotify';
 
 const Home = () => (
   <header className="App-header">
     <br></br>
+    
     <Button color="info" size="lg" style={{width: '75%'}} href="/mainPage" block>Audio Recorder</Button>
     <P5Wrapper sketch={sketch} />
+   
   </header>
 )
 
