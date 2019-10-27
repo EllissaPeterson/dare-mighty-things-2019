@@ -14,6 +14,7 @@ const Player = props => {
   };
 
   return (
+    
     <div className="Player">
       <div className="main-wrapper">
         <div className="now-playing__img">
