@@ -97,7 +97,7 @@ export default function sketch (p) {
 
 
     p.setup = function () {
-      p.createCanvas(p.windowWidth, p.windowHeight);
+      p.createCanvas((p.windowWidth*.95), (p.windowHeight*0.8));
       p.noStroke();
       p.fill(40, 200, 200);
         numPoints = data.length;
@@ -105,7 +105,7 @@ export default function sketch (p) {
     };
 
     p.draw = function () {
-        p.background(10, 50); // translucent background (creates trails)
+        p.background(40, 44, 52); // translucent background (creates trails)
         p.stroke(255);
         if (p.mouseIsPressed === true) {
           p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
@@ -114,8 +114,8 @@ export default function sketch (p) {
         for (let s = 0; s < numPoints; s++) {
             let tempT = (t - s*stepTime)%(totalTime*2);
 
-            let orginX = p.windowWidth/2;
-            let orginY = p.windowHeight/2;
+            let orginX = p.windowWidth/2*.95;
+            let orginY = p.windowHeight/2*.8;
 
             let endX = data[s][0] - 250;
             let endY = data[s][1] - 250;
@@ -153,6 +153,6 @@ export default function sketch (p) {
 
   };
   p.windowResized = function() {
-      p.resizeCanvas(p.windowWidth, p.windowHeight);
+      p.resizeCanvas((p.windowWidth*.95), (p.windowHeight*0.8));
   }
 };
