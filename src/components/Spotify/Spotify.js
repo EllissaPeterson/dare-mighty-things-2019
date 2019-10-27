@@ -59,14 +59,16 @@ class SpotifyPlay extends Component {
   render() {
     if(this.state.token != null) {
       console.log(this.state.token.item.name, this.token.item.artists[0]);
-      globalVars.songname = this.state.token.item.name;
+      globalVars.song = this.state.token.item.name;
       globalVars.artist = this.state.token.item.artists[0];
     }
-     
+
     return (
+
+     
     
       <div>
-        
+
           {!this.state.token && (
             <a
               className="btn btn--loginApp-link"
@@ -77,17 +79,17 @@ class SpotifyPlay extends Component {
               Login to Spotify
             </a>
           )}
-          {this.state.token && ( 
-            <Player 
+          {this.state.token && (
+            <Player
               item={this.state.item}
               is_playing={this.state.is_playing}
               progress_ms={this.progress_ms}
             />
           )}
-        
-      
+
+
           </div>
-      
+
     );
   }
 }
