@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import AudioAnalyser from './AudioAnalyser';
-
+import CHeader from './CustomHeader';
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
@@ -31,6 +31,7 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
+          <CHeader/>
             <Button color="info" size="lg" onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </Button>
