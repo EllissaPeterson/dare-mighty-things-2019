@@ -12,9 +12,14 @@ export default function sketch (p) {
     let waitTime = 0.2;
 
     let scalar = 1;
-    let rotscalar = 1;
+    // use rotscale to scale rotation speed and also to increase blur
+    let rotscalar = 1.00001;
+    let rotscalemax = 50;
+    let rotscalemin = 1.00001;
+    let increasingrotscalar = true;
     // Scalar when volume max
     let max_scalar = 1.5;
+    //let max_scalar = 2;
 
     // smoothing limit between 0 to 128 for how much a volume can change at a time
     let smoothing_limit = 128;
@@ -501,9 +506,9 @@ export default function sketch (p) {
     };
 
     p.draw = function () {
-        p.background(50*Math.pow(scalar, 2), 30); // translucent background (creates trails)
+        p.background(50*Math.pow(scalar, 2)-50, 50 - rotscalar); // translucent background (creates trails)
 
-
+        console.log(rotscalar);
         // Get that audio data B-) (cool sunglasses face)
         let audioData = globalAudio.audioData;
         //let max_audio = Math.max(audioData);
@@ -511,22 +516,8 @@ export default function sketch (p) {
 
         // biggest diff of value and 128
 
-        /*
-        let maxdiff = 128
-        for(let i = 0; i < audioData.length; i++){
-          if(Math.abs(audioData[i]-128) > Math.abs(maxdiff-128)){
-            maxdiff = audioData[i];
-          }
-        }
-        // Apply smoothing
-        if(Math.abs(Math.abs(maxdiff-128)-Math.abs(lastmaxdiff-128)) > smoothing){
-          maxdiff = lastmaxdiff
-        }
-
-        let lastmaxdiff = maxdiff
-        */
-
         // make diff always between 0 and 128
+        /*
         maxdiff = 0;
         for(let i = 0; i < audioData.length; i++){
           let cursordiff = Math.abs(audioData[i]-128);
@@ -541,9 +532,38 @@ export default function sketch (p) {
         }
 
         lastmaxdiff = maxdiff;
-        // could also try average of absolute differences
-        //scalar = p.map(maxdiff, 0, 128, 1, max_scalar);
+
         scalar = p.map(maxdiff, 0, 128, 1, max_scalar);
+        */
+        // For cumulative difference algorithm
+        let diffsum = 0;
+        for(let i = 0; i < audioData.length; i++){
+          let cursordiff = Math.abs(audioData[i]-128);
+          diffsum += cursordiff;
+        }
+
+        scalar = p.map(diffsum, 0, 131072, 1, max_scalar);
+
+        console.log(increasingrotscalar);
+        if(increasingrotscalar){
+          //rotscalar = Math.pow(rotscalar, 1.01);
+          //rotscalar = Math.pow(1.11, rotscalar);
+          rotscalar = Math.pow(rotscalar, 1.01);
+          console.log('increasing');
+        }else{
+          rotscalar *= 0.98;
+          //rotscalar = Math.log(rotscalar)/Math.log(1.01);
+          //rotscalar = Math.pow(10, Math.log(rotscalar)/1.01)
+          console.log('decreasing');
+        }
+        if (rotscalar > rotscalemax){
+          console.log('setting false');
+          increasingrotscalar = false;
+        }else if(rotscalar < rotscalemin){
+          rotscalar = rotscalemin;
+          console.log('setting true');
+          increasingrotscalar = true;
+        }
 
 
 
