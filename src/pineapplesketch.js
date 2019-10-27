@@ -508,7 +508,35 @@ export default function sketch (p) {
     p.draw = function () {
         p.background(50*Math.pow(scalar, 2)-50, 50 - rotscalar); // translucent background (creates trails)
 
-        console.log(rotscalar);
+
+        p.push()
+        if (globalAudio.song != null && globalAudio.artist != null){
+          let songString = globalAudio.song + ';' + globalAudio.artist;
+          let lines = songString.split(";");
+          p.textSize(16);
+          p.noStroke();
+          p.textAlign(p.LEFT, p.TOP);
+          for (var i = 0; i < lines.length; i++) {
+            var words = lines[i].split(" ");
+            var currentOffset = 0;
+            for (var j = 0; j < words.length; j++) {
+              var wordWidth = p.textWidth(words[j]);
+              p.fill(200-(15*j));
+              p.rect(25+currentOffset - 1, 24+i*22, wordWidth + 2, 18);
+              p.fill(0);
+              p.text(words[j], 25+currentOffset, 24+i*22);
+              // four pixels between words
+              currentOffset += wordWidth + 6;
+            }
+          }
+
+        }
+        p.pop()
+
+
+
+
+        //console.log(rotscalar);
         // Get that audio data B-) (cool sunglasses face)
         let audioData = globalAudio.audioData;
         //let max_audio = Math.max(audioData);
@@ -544,24 +572,24 @@ export default function sketch (p) {
 
         scalar = p.map(diffsum, 0, 131072, 1, max_scalar);
 
-        console.log(increasingrotscalar);
+        //console.log(increasingrotscalar);
         if(increasingrotscalar){
           //rotscalar = Math.pow(rotscalar, 1.01);
           //rotscalar = Math.pow(1.11, rotscalar);
           rotscalar = Math.pow(rotscalar, 1.01);
-          console.log('increasing');
+          //console.log('increasing');
         }else{
           rotscalar *= 0.98;
           //rotscalar = Math.log(rotscalar)/Math.log(1.01);
           //rotscalar = Math.pow(10, Math.log(rotscalar)/1.01)
-          console.log('decreasing');
+          //console.log('decreasing');
         }
         if (rotscalar > rotscalemax){
-          console.log('setting false');
+          //console.log('setting false');
           increasingrotscalar = false;
         }else if(rotscalar < rotscalemin){
           rotscalar = rotscalemin;
-          console.log('setting true');
+          //console.log('setting true');
           increasingrotscalar = true;
         }
 
