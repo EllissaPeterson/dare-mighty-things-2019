@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import AudioAnalyser from './AudioAnalyser';
-import Player from './Spotify/Spotify';
+
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
@@ -34,13 +34,15 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
-          <Player/>
+            
             <Button color={this.state.color} size="lg" style={{width: '75%'}} onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </Button>
             
             {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
+        
         </header>
+        
       )
     }
 }
