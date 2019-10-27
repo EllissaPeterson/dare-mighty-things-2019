@@ -142,7 +142,7 @@ export default function sketch (p) {
                 //const myY = y + 20 * Math.sin(2 * Math.PI * tempT);// + angle);
 
                 //p.rect(myX, myY, 5, 5); // draw particle
-                p.ellipse(x, y, 5); // draw particle
+                p.ellipse(x, y, 10); // draw particle
                 //p.rotate(Math.PI * t);
         }
     t = t + 0.01; // update time
@@ -151,5 +151,8 @@ export default function sketch (p) {
         inOut = !inOut;
     }
 
-    };
   };
+  p.windowResized = function() {
+      p.resizeCanvas(p.windowWidth, p.windowHeight);
+  }
+};
