@@ -1,3 +1,5 @@
+import globalAudio from './globalAudio'
+
 export default function sketch (p) {
     let t = 0; // time variable
     let c = 0;
