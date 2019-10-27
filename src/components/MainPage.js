@@ -31,7 +31,7 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
-            <Button color="info" size="lg" onClick={this.toggleMicrophone} block>
+            <Button color="danger" size="lg" onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </Button>
             {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}

@@ -6,7 +6,7 @@ import MainPage from './components/MainPage';
 
 const Home = () => (
   <header className="App-header">
-    <Button color="info" size="lg" href="/mainPage" block>Main Page</Button>
+    <Button color="danger" size="lg" href="/mainPage" block>Main Page</Button>
   </header>
 )
 
