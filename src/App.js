@@ -6,10 +6,10 @@ import MainPage from './components/normalMode/MainPage';
 import PulsingPineapple from './components/pulsingPineapple/PulsingPineapple';
 import McD from './components/mcD/McD';
 import Cat from './components/cat/Cat';
+import FFT from './components/fft/FFT';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketch';
 import CHeader from './components/CustomHeader';
-import Player from './components/Spotify/Spotify';
 import Spotify from './components/Spotify/Spotify';
 
 const Home = () => (
@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/pulsingPineapple" component={PulsingPineapple} />
           <Route exact path="/mcD" component={McD} />
           <Route exact path="/cat" component={Cat} />
+          <Route exact path="/fft" component={FFT} />
       </div>
     </Router>
   );
