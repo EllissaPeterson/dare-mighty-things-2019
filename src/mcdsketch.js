@@ -769,6 +769,30 @@ export default function sketch (p) {
     p.draw = function () {
         p.background(255*scalar, 0, 255*scalar, 100); // translucent background (creates trails)
         //10 (0, 255-255*scalar, 0)
+        p.push()
+        if (globalAudio.song != null && globalAudio.artist != null){
+          let songString = globalAudio.song + ';' + globalAudio.artist;
+          let lines = songString.split(";");
+          p.textSize(16);
+          p.noStroke();
+          p.textAlign(p.LEFT, p.TOP);
+          for (var i = 0; i < lines.length; i++) {
+            var words = lines[i].split(" ");
+            var currentOffset = 0;
+            for (var j = 0; j < words.length; j++) {
+              var wordWidth = p.textWidth(words[j]);
+              p.fill(200-(15*j));
+              p.rect(25+currentOffset - 1, 24+i*22, wordWidth + 2, 18);
+              p.fill(0);
+              p.text(words[j], 25+currentOffset, 24+i*22);
+              // four pixels between words
+              currentOffset += wordWidth + 6;
+            }
+          }
+
+        }
+        p.pop()
+
         let audioData = globalAudio.audioData;
 
         let diffsum = 0;
