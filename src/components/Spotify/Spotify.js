@@ -57,16 +57,14 @@ class SpotifyPlay extends Component {
   }
 
   render() {
-    if(this.state.token != null) {
-      console.log(this.state.token.item.name, this.token.item.artists[0]);
-      globalVars.song = this.state.token.item.name;
-      globalVars.artist = this.state.token.item.artists[0];
-    }
+   // if(this.state.token != null) {
+   //   console.log(this.state.token.item.name, this.token.item.artists[0]);
+    //  globalVars.song = this.state.token.item.name;
+    //  globalVars.artist = this.state.token.item.artists[0];
+   // }
 
     return (
 
-     
-    
       <div>
 
           {!this.state.token && (
