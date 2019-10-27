@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   bar: {
       background: "rgba(50,52,50)",
-      
+
   },
 }));
 
@@ -31,12 +31,12 @@ export default function CHeader() {
                   <img src={logo} alt="Logo" height={30} />
                   </IconButton>
                   <Typography variant="h6" color="inherit">
-                    AudioPinapple
+                    Audio Pineapple
                   </Typography>
                 </Toolbar>
               </AppBar>
             </div>
           );
-    
+
 
 }
