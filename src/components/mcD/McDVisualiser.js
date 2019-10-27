@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
-import pineapplesketch from '../../pineapplesketch';
+import mcdsketch from '../../mcdsketch';
 import globalAudio from '../../globalAudio';
 class McDVisualiser extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class McDVisualiser extends Component {
     render() {
         return (
             <div>
-                <P5Wrapper sketch={pineapplesketch} />
+                <P5Wrapper sketch={mcdsketch} />
             </div>
         )
     }

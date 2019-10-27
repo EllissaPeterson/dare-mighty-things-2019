@@ -19,6 +19,7 @@ export default function sketch (p) {
     let increasingrotscalar = true;
     // Scalar when volume max
     let max_scalar = 1.5;
+    //let max_scalar = 2;
 
     // smoothing limit between 0 to 128 for how much a volume can change at a time
     let smoothing_limit = 128;
@@ -516,6 +517,7 @@ export default function sketch (p) {
         // biggest diff of value and 128
 
         // make diff always between 0 and 128
+        /*
         maxdiff = 0;
         for(let i = 0; i < audioData.length; i++){
           let cursordiff = Math.abs(audioData[i]-128);
@@ -530,9 +532,17 @@ export default function sketch (p) {
         }
 
         lastmaxdiff = maxdiff;
-        // could also try average of absolute differences
-        //scalar = p.map(maxdiff, 0, 128, 1, max_scalar);
+
         scalar = p.map(maxdiff, 0, 128, 1, max_scalar);
+        */
+        // For cumulative difference algorithm
+        let diffsum = 0;
+        for(let i = 0; i < audioData.length; i++){
+          let cursordiff = Math.abs(audioData[i]-128);
+          diffsum += cursordiff;
+        }
+
+        scalar = p.map(diffsum, 0, 131072, 1, max_scalar);
 
         console.log(increasingrotscalar);
         if(increasingrotscalar){
