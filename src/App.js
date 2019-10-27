@@ -12,6 +12,7 @@ import CHeader from './components/CustomHeader';
 const Home = () => (
   <header className="App-header">
     <br></br>
+    <br></br>
     <Button color="info" size="lg" style={{width: '75%'}} href="/mainPage" block>Normal Mode</Button>
     <Button color="info" size="lg" style={{width: '75%'}} href="/pulsingPineapple" block>Pulsing Pineapple</Button>
     <P5Wrapper sketch={sketch} />
