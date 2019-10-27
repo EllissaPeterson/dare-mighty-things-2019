@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import AudioAnalyser from './AudioAnalyser';
-import CHeader from './CustomHeader';
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          audio: null
+          audio: null,
+          color: "info"
         };
         this.toggleMicrophone = this.toggleMicrophone.bind(this);
     }
@@ -16,10 +16,12 @@ export default class MainPage extends React.Component {
           video: false
         });
         this.setState({ audio });
+        this.setState({ color: "danger" })
     }
     stopMicrophone() {
         this.state.audio.getTracks().forEach(track => track.stop());
         this.setState({ audio: null });
+        this.setState({ color: "info" })
     }
     toggleMicrophone() {
         if (this.state.audio) {
@@ -31,7 +33,7 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
-            <Button color="danger" size="lg" onClick={this.toggleMicrophone} block>
+            <Button color={this.state.color} size="lg" onClick={this.toggleMicrophone} block>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </Button>
             {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
