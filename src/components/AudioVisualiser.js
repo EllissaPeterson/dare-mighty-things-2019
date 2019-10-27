@@ -11,6 +11,8 @@ class AudioVisualiser extends Component {
 
         globalAudio.audioData = audioData;
 
+        //console.log(audioData)
+
         const canvas = this.canvas.current;
         const height = canvas.height;
         const width = canvas.width;
