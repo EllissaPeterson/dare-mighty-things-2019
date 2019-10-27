@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
-import catsketch from '../../catsketch';
+import fftsketch from '../../fftsketch';
 import globalAudio from '../../globalAudio';
 class FFTVisualiser extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class FFTVisualiser extends Component {
     render() {
         return (
             <div>
-                <P5Wrapper sketch={catsketch} />
+                <P5Wrapper sketch={fftsketch} />
             </div>
         )
     }

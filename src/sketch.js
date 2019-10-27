@@ -4,7 +4,7 @@ export default function sketch (p) {
     let numPoints = 0;
     let stepTime = 0;
     let travelTime = 0.1;
-    let totalTime = 1
+    let totalTime = 1;
 
     let data = [
         [87,61],
@@ -106,7 +106,7 @@ export default function sketch (p) {
 
     p.draw = function () {
         p.background(40, 44, 52); // translucent background (creates trails)
-        p.stroke(255);
+        //p.stroke(255);
         if (p.mouseIsPressed === true) {
           p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
         }
