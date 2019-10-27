@@ -1,4 +1,4 @@
-.App {
+.SpotifyButton {
     text-align: center;
   }
   
@@ -38,16 +38,16 @@
     padding: 0;
   }
   
-  html, body {
+ /* html, body {
     height: 100%;
-  }
+  }*/
   
-  body {
+ /* body {
     background-color: #333;
     color: #eee;
     font-family: Helvetica, Arial;
     font-size: 3vmin;
-  }
+  }*/
   
   .hidden {
     display: none;
@@ -58,13 +58,13 @@
   .btn {
     background-color: transparent;
     border-radius: 2em;
-    border: 0.2em solid #1ecd97;
+    border: 2px solid #1ecd97;
     color: #1ecd97;
     cursor: pointer;
     font-size: 3vmin;
     padding: 0.7em 1.5em;
     text-transform: uppercase;
-    transition: all 0.25s ease;
+    transition: all 0.25s ease; 
   }
   
   .btn:hover {
@@ -91,7 +91,7 @@
   
   .main-wrapper {
     align-items: center;
-    display: flex;
+    display: block;
     height: 100%;
     margin: 0 auto;
     justify-content: center;
@@ -102,7 +102,7 @@
   
   .container {
     align-items: center;
-    display: flex;
+    display: block;
     justify-content: center;
     height: 100%;
   }
