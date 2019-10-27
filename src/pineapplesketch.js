@@ -12,6 +12,7 @@ export default function sketch (p) {
     let waitTime = 0.2;
 
     let scalar = 1;
+    let rotscalar = 1;
     // Scalar when volume max
     let max_scalar = 1.5;
 
@@ -500,7 +501,7 @@ export default function sketch (p) {
     };
 
     p.draw = function () {
-        p.background(100*scalar, 50); // translucent background (creates trails)
+        p.background(50*Math.pow(scalar, 2), 30); // translucent background (creates trails)
 
 
         // Get that audio data B-) (cool sunglasses face)
@@ -562,7 +563,7 @@ export default function sketch (p) {
             let orginX = p.windowWidth/2;
             let orginY = p.windowHeight/2;
 
-            rot = t;
+            rot = t*rotscalar;
             wave = (t*6.66)%20;
 
             let endX = data[s][0]*Math.cos(data[s][1] + rot)*scalar;
@@ -586,8 +587,8 @@ export default function sketch (p) {
                 y = orginY;
             }
                 // each particle moves in a circle
-                const myX = x + wave * Math.cos((wave/10) * Math.PI * tempT);
-                const myY = y + wave * Math.sin((wave/10) * Math.PI * tempT);// + angle);
+                const myX = x + wave * Math.cos((wave/10) * Math.PI * tempT/2);
+                const myY = y + wave * Math.sin((wave/10) * Math.PI * tempT/2);// + angle);
 
                 //p.rect(myX, myY, 5, 5); // draw particle
                 p.ellipse(myX, myY , 7*scalar); // draw particle
