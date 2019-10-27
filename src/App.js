@@ -32,6 +32,7 @@ function App() {
       <CHeader/>
       
       <div className="App">
+      <Route exact path="/callback#" component={withRouter(Home)} />
       <Route exact path="/callback" component={withRouter(Home)} />
           <Route exact path="/" component={withRouter(Home)} />
           <Route exact path="/mainPage" component={MainPage} />
