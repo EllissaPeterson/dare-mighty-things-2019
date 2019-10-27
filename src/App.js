@@ -9,7 +9,7 @@ import CHeader from './components/CustomHeader';
 
 const Home = () => (
   <header className="App-header">
-    <Button color="danger" size="lg" href="/mainPage" block>Main Page</Button>
+    <Button color="info" size="lg" href="/mainPage" block>Main Page</Button>
     <P5Wrapper sketch={sketch} />
   </header>
 )
