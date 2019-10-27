@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import PineappleAnalyser from './PineappleAnalyser';
+import Spotify from '../Spotify/Spotify';
 export default class PulsingPineapple extends React.Component {
     constructor(props) {
         super(props);
@@ -10,6 +11,7 @@ export default class PulsingPineapple extends React.Component {
         };
         this.toggleMicrophone = this.toggleMicrophone.bind(this);
     }
+    
     async getMicrophone() {
         const audio = await navigator.mediaDevices.getUserMedia({
           audio: true,
