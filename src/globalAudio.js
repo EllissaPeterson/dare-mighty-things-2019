@@ -1,3 +1,9 @@
+//var songName = null;
+//var artistName = null;
 export default{
-  audioData: null
+  audioData: null,
+  song: null,
+  artist: null,
+  
+
 };
