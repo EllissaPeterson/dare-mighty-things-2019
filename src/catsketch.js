@@ -377,23 +377,23 @@ export default function sketch (p) {
 
 
     p.setup = function () {
-      p.createCanvas(p.windowWidth, p.windowHeight);
+      p.createCanvas(p.windowWidth*0.99, p.windowHeight*0.8);
       p.noStroke();
       //p.fill(204, 102, 0);
         numPoints = data.length;
         stepTime = (totalTime - travelTime - waitTime)/numPoints
 
-        relOrX = p.windowWidth/2;
-        relOrY = p.windowHeight/2;
+        relOrX = p.windowWidth/2*0.99;
+        relOrY = p.windowHeight/2*0.8;
 
     };
 
     p.draw = function () {
         p.background(0, 45); // translucent background (creates trails)
-        if(relOrX - 300 < 0 || relOrX + 300 >  p.windowWidth) {
+        if(relOrX - 300 < 0 || relOrX + 300 >  p.windowWidth*0.99) {
             xVel *= -1;
         }
-        if(relOrY - 150 < 0 || relOrY + 150 > p.windowHeight) {
+        if(relOrY - 150 < 0 || relOrY + 150 > p.windowHeight*0.8) {
             yVel *= -1;
         }
 

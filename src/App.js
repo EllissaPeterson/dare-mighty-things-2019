@@ -5,11 +5,13 @@ import { Button } from 'reactstrap';
 import MainPage from './components/normalMode/MainPage';
 import PulsingPineapple from './components/pulsingPineapple/PulsingPineapple';
 import McD from './components/mcD/McD';
+import Cat from './components/cat/Cat';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from './sketch';
 import CHeader from './components/CustomHeader';
 import Player from './components/Spotify/Spotify';
 import Spotify from './components/Spotify/Spotify';
+
 const Home = () => (
   <header className="App-header">
     <br></br>
@@ -18,6 +20,7 @@ const Home = () => (
     <Button color="info" size="lg" style={{width: '75%'}} href="/mainPage" block>Normal Mode</Button>
     <Button color="info" size="lg" style={{width: '75%'}} href="/pulsingPineapple" block>Pulsing Pineapple</Button>
     <Button color="info" size="lg" style={{width: '75%'}} href="/mcD" block>Mc D</Button>
+    <Button color="info" size="lg" style={{width: '75%'}} href="/cat" block>Cat</Button>
     <P5Wrapper sketch={sketch} />
    
   </header>
@@ -34,6 +37,7 @@ function App() {
           <Route exact path="/mainPage" component={MainPage} />
           <Route exact path="/pulsingPineapple" component={PulsingPineapple} />
           <Route exact path="/mcD" component={McD} />
+          <Route exact path="/cat" component={Cat} />
       </div>
     </Router>
   );
