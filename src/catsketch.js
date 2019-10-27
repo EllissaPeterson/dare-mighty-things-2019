@@ -3,7 +3,7 @@ import globalAudio from './globalAudio'
 //import fftUtil from 'fft-js/util'
 //var fft = require('fft-js').fft,
 //var fftUtil = require('fft-js').util,
-import fftjs from 'fft-js'
+
 
 
 export default function sketch (p) {
@@ -401,20 +401,6 @@ export default function sketch (p) {
         p.background(128*Math.pow(ampScaler,4), 0, 128*Math.pow(ampScaler,4), 45);
 
         let audioData = globalAudio.audioData;
-
-
-        let phasors = fftjs.fft(audioData);
-        console.log(phasors);
-
-        let frequencies = fftjs.fftUtil.fftFreq(phasors, 8000) // Sample rate and coef is just used for length, and frequency step
-        let magnitudes = fftjs.fftUtil.fftMag(phasors);
-
-        var both = frequencies.map(function (f, ix) {
-          return {frequency: f, magnitude: magnitudes[ix]};
-        });
-
-        console.log(both);
-
 
         if(relOrX - 300 < 0 || relOrX + 300 >  p.windowWidth*0.99) {
             xVel *= -1;
