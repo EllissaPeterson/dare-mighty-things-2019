@@ -1,4 +1,10 @@
 import globalAudio from './globalAudio'
+//import fftjs from 'fft-js'
+//import fftUtil from 'fft-js/util'
+//var fft = require('fft-js').fft,
+//var fftUtil = require('fft-js').util,
+import fftjs from 'fft-js'
+
 
 export default function sketch (p) {
     let t = 0; // time variable
@@ -6,17 +12,19 @@ export default function sketch (p) {
     let inOut = false;
     let numPoints = 0;
     let stepTime = 0;
-    let travelTime = 0.05;
+    let travelTime = 0.02;
     let totalTime = 1.5;
     let waitTime = 0.5;
 
-    let scalar = 4.0;
+    let scalar = 3.0;
     let wave = 0.5;
     let rot = 0;
     let relOrX = 0;
     let relOrY = 0;
     let xVel = 4;
     let yVel = 4;
+
+    let ampScaler = 1;
 
 
     let red1 = p.color(255, 35, 79);
@@ -389,7 +397,25 @@ export default function sketch (p) {
     };
 
     p.draw = function () {
-        p.background(0, 45); // translucent background (creates trails)
+        //p.background(0, 45); // translucent background (creates trails)
+        p.background(128*Math.pow(ampScaler,4), 0, 128*Math.pow(ampScaler,4), 45);
+
+        let audioData = globalAudio.audioData;
+
+
+        let phasors = fftjs.fft(audioData);
+        console.log(phasors);
+
+        let frequencies = fftjs.fftUtil.fftFreq(phasors, 8000) // Sample rate and coef is just used for length, and frequency step
+        let magnitudes = fftjs.fftUtil.fftMag(phasors);
+
+        var both = frequencies.map(function (f, ix) {
+          return {frequency: f, magnitude: magnitudes[ix]};
+        });
+
+        console.log(both);
+
+
         if(relOrX - 300 < 0 || relOrX + 300 >  p.windowWidth*0.99) {
             xVel *= -1;
         }
@@ -411,7 +437,8 @@ export default function sketch (p) {
             rot = 0;
             wave = (t*6.66)%20;
 
-            let ampScaler = 1 - (randData[(c+s)%200]/255)/4
+            //let ampScaler = 1 - (randData[(c+s)%200]/255)/4
+            ampScaler = 1 - (audioData[(c+s)%200]/255)/2;
 
             let endX = data[s][0]*ampScaler*Math.cos(data[s][1] + rot)*scalar;
             let endY = data[s][0]*ampScaler*Math.sin(data[s][1] + rot)*scalar;
