@@ -65,7 +65,9 @@ class SpotifyPlay extends Component {
 
     return (
 
-      <div className="btn">
+     
+    
+      <div>
 
           {!this.state.token && (
             <a
