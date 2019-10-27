@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import globalAudio from '../../globalAudio'
 
 class AudioVisualiser extends Component {
     constructor(props) {
@@ -7,6 +8,11 @@ class AudioVisualiser extends Component {
     }
     draw() {
         const { audioData } = this.props;
+
+        globalAudio.audioData = audioData;
+
+        //console.log(audioData)
+
         const canvas = this.canvas.current;
         const height = canvas.height;
         const width = canvas.width;

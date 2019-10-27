@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import P5Wrapper from 'react-p5-wrapper';
-import sketch from '../../sketch';
-
+import pineapplesketch from '../../pineapplesketch';
+import globalAudio from '../../globalAudio';
 class PineappleVisualiser extends Component {
     constructor(props) {
         super(props);
         this.canvas = React.createRef();
     }
     draw() {
-        // const { audioData } = this.props;
+        const { audioData } = this.props;
+        globalAudio.audioData = audioData;
+        //console.log(audioData);
+
         // const canvas = this.canvas.current;
         // const height = canvas.height;
         // const width = canvas.width;
@@ -34,7 +37,7 @@ class PineappleVisualiser extends Component {
     render() {
         return (
             <div>
-                <P5Wrapper sketch={sketch} />
+                <P5Wrapper sketch={pineapplesketch} />
             </div>
         )
     }
