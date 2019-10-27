@@ -492,7 +492,7 @@ export default function sketch (p) {
 
     p.setup = function () {
 
-      p.createCanvas(p.windowWidth, p.windowHeight);
+      p.createCanvas(p.windowWidth*0.99, p.windowHeight*0.8);
       p.noStroke();
       //p.fill(204, 102, 0);
         numPoints = data.length;
@@ -559,8 +559,8 @@ export default function sketch (p) {
 
             let tempT = (t - s*stepTime)%(totalTime*2);
 
-            let orginX = p.windowWidth/2;
-            let orginY = p.windowHeight/2;
+            let orginX = p.windowWidth/2*0.99;
+            let orginY = p.windowHeight/2*0.8;
 
             rot = t;
             wave = (t*6.66)%20;
