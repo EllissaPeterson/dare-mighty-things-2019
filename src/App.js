@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+<<<<<<< HEAD
 import axios from 'axios';
 import p5 from 'p5';
 import {Button }from 'reactstrap';
@@ -21,6 +22,14 @@ const Home = () => (
 
     <Button color="info" size="lg" href="/mainPage">Main Page</Button>{' '}
 
+=======
+import { Button } from 'reactstrap';
+import MainPage from './components/MainPage';
+
+const Home = () => (
+  <header className="App-header">
+    <Button color="info" size="lg" href="/mainPage" block>Main Page</Button>
+>>>>>>> master
   </header>
 )
 
@@ -46,3 +55,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;

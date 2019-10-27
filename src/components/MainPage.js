@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import AudioAnalyser from './AudioAnalyser';
 
 var config = {
@@ -8,6 +9,11 @@ var config = {
   storageBucket: "dare-mighty-things-2019.appspot.com",
 };
 
+=======
+import { Button } from 'reactstrap';
+import AudioAnalyser from './AudioAnalyser';
+
+>>>>>>> master
 export default class MainPage extends React.Component {
     constructor(props) {
         super(props);
@@ -37,9 +43,15 @@ export default class MainPage extends React.Component {
     render() {
       return (
         <header className="App-header">
+<<<<<<< HEAD
             <button color= "primary" onClick={this.toggleMicrophone}>
               {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
             </button>
+=======
+            <Button color="info" size="lg" onClick={this.toggleMicrophone} block>
+              {this.state.audio ? 'Stop microphone' : 'Get microphone input'}
+            </Button>
+>>>>>>> master
             {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
         </header>
       )
