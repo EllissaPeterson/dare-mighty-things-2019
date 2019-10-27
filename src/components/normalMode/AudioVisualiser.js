@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import globalAudio from '../globalAudio'
+import globalAudio from '../../globalAudio'
 
 class AudioVisualiser extends Component {
     constructor(props) {
