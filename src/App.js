@@ -11,7 +11,7 @@ import CHeader from './components/CustomHeader';
 const Home = () => (
   <header className="App-header">
     <br></br>
-    <Button color="info" size="lg" href="/mainPage" block>Main Page</Button>
+    <Button color="info" size="lg" style={{width: '75%'}} href="/mainPage" block>Audio Recorder</Button>
     <P5Wrapper sketch={sketch} />
   </header>
 )

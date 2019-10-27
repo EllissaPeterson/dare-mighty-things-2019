@@ -30,16 +30,14 @@ export default function CHeader() {
             <div className={classes.root}>
               <AppBar className={classes.bar}>
                 <Toolbar variant="dense">
-                 <Router>
-                    <Link to="/">
-                    <IconButton edge="start" className={classes.menuButton} >
+                 
+                    <IconButton edge="start" className={classes.menuButton} href ="/">
                     
                     <img src={logo} alt="Logo" height={30} />
                     </IconButton>
 
-                    </Link>
                 
-                 </Router>
+                 
                  
                   <Typography variant="h6" color="inherit">
                     Audio Pineapple
